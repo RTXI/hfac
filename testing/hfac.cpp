@@ -311,7 +311,7 @@ void HFAC::customizeGUI(void) {
 	QObject::connect(hfacBttn, SIGNAL(toggled(bool)), this, SLOT(startHFAC(bool)));
 
 	protocolBttn = new QPushButton("Run");
-	bttnBoxLayout->addWidget(hfacBttn);
+	bttnBoxLayout->addWidget(protocolBttn);
 	protocolBttn->setCheckable(false);
 	protocolBttn->setToolTip("Run Protocol");
 	QObject::connect(protocolBttn, SIGNAL(clicked()), this, SLOT(runProtocol()));
