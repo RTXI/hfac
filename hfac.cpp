@@ -290,7 +290,6 @@ void HFAC::toggleRecord(bool on) {
 	printf("Data recording is OFF\n");
 }
 
-//void HFAC::createGUI(DefaultGUIModel::variable_t *var, int size) {}
 void HFAC::customizeGUI(void) {
 	QGridLayout *customLayout = DefaultGUIModel::getLayout();
 

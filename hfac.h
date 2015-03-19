@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <default_gui_model.h>
 #include <gen_sine.h>
-#include </home/ansel/RTXI/rtxi/plugins/data_recorder/data_recorder.h>
+#include </home/user/Projects/rtxi/plugins/data_recorder/data_recorder.h>
 //#include "~/RTXI/rtxi/plugins/data_recorder/data_recorder.h"
 #include <math.h>
 #include <string>
@@ -31,7 +31,6 @@ class HFAC : public DefaultGUIModel {
 		virtual ~HFAC(void);
 	
 		void execute(void);
-//		void createGUI(DefaultGUIModel::variable_t *, int);
 		void customizeGUI(void);
 	
 		enum HFACmode_t {
