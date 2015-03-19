@@ -42,7 +42,7 @@ static HFAC::variable_t vars[] =
 		| DefaultGUIModel::DOUBLE, },
 	{ "Trial Duration (s)", "Trial Duration (s)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
-	{ "Data File Name", "Name of HDF File", DefaultGUIModel::COMMENT },
+//	{ "Data File Name", "Name of HDF File", DefaultGUIModel::COMMENT },
 	{ "Time (s)", "Time (s)", DefaultGUIModel::STATE, }, 
 };
 
@@ -62,9 +62,10 @@ HFAC::HFAC(void) : DefaultGUIModel("HFAC", ::vars, ::num_vars) {
 	initStimulus();
 	DefaultGUIModel::createGUI(vars, num_vars); // this is required to create the GUI
 	customizeGUI();
-	update( INIT);
+	update( INIT );
 	refresh();
 	printf("Starting HFAC Module:\n");
+	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
 
 HFAC::~HFAC(void) {}
@@ -82,7 +83,7 @@ void HFAC::execute(void) {
 		} if (systime >= duration) {
 			pause(true);
 			update( PAUSE);
-			if (recordon) DataRecorder::stopRecording();
+//			if (recordon) DataRecorder::stopRecording();
 			protocolGO = false;
 			APBttn->setEnabled(true);
 			APstimGO = false;
@@ -125,7 +126,7 @@ void HFAC::update(DefaultGUIModel::update_flags_t flag) {
 			setParameter("Trial Duration (s)", QString::number(duration));
 			setState("Time (s)", systime);
 			setComment("Data File Name", dFile);
-			DataRecorder::openFile(dFile);
+//			DataRecorder::openFile(dFile);
 			break;
 	
 		case MODIFY:
@@ -140,6 +141,7 @@ void HFAC::update(DefaultGUIModel::update_flags_t flag) {
 			"You may want to lengthen the duration of your trial given your AP stimulus delay!\n"));
 			}
 			initStimulus();
+/*
 			if (recordon) {
 				QString newdFile = getComment("Data File Name");
 				int c = QString::compare(newdFile, dFile);
@@ -149,6 +151,7 @@ void HFAC::update(DefaultGUIModel::update_flags_t flag) {
 					DataRecorder::openFile(dFile);
 				}
 			}
+*/
 			break;
 		
 		case PERIOD:
@@ -165,7 +168,7 @@ void HFAC::update(DefaultGUIModel::update_flags_t flag) {
 			systime = 0;
 			count = 0;
 			
-			if (recordon) DataRecorder::startRecording();
+//			if (recordon) DataRecorder::startRecording();
 			break;
 		
 		default:
@@ -186,7 +189,7 @@ void HFAC::initParameters() {
 	HFACmode = HFACOFF;
 	APstimGO = false;
 	
-	recordon = true;
+//	recordon = true;
 	dFile = "default.h5";
 	duration = 2; // s
 	dt = RT::System::getInstance()->getPeriod() * 1e-9; // s
@@ -282,6 +285,7 @@ void HFAC::updateAPStimMode(int index) {
 	}
 }
 
+/*
 void HFAC::toggleRecord(bool on) {
 	recordon = on;
 	if (on)
@@ -289,6 +293,7 @@ void HFAC::toggleRecord(bool on) {
 	else
 	printf("Data recording is OFF\n");
 }
+*/
 
 void HFAC::customizeGUI(void) {
 	QGridLayout *customLayout = DefaultGUIModel::getLayout();
@@ -332,7 +337,8 @@ void HFAC::customizeGUI(void) {
 	QObject::connect(modeButtonGroup,SIGNAL(buttonClicked(int)),this,SLOT(updateAPStimMode(int)));
 	posButton->setToolTip("Set biphasic pulse to pos then neg");
 	negButton->setToolTip("Set biphaisc pulse to neg then pos");
-	
+
+/*	
 	QGroupBox *optionRow = new QGroupBox("Data Recorder");
 	QHBoxLayout *optionRowLayout = new QHBoxLayout;
 	optionRow->setLayout(optionRowLayout);
@@ -342,11 +348,12 @@ void HFAC::customizeGUI(void) {
 	recordCheckBox->setChecked(true); // set some defaults
 	recordCheckBox->setEnabled(true);
 	QObject::connect(recordCheckBox, SIGNAL(toggled(bool)), this, SLOT(toggleRecord(bool)));
+*/
 	
 	// add custom GUI components to layout above default_gui_model components
 	customLayout->addWidget(bttnBox, 0, 0);
 	customLayout->addWidget(modeBox, 2, 0);
-	customLayout->addWidget(optionRow, 3, 0);
+//	customLayout->addWidget(optionRow, 3, 0);
 	
 	setLayout(customLayout);
 }
