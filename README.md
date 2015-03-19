@@ -3,11 +3,9 @@
 **Requirements:** None  
 **Limitations:** Generator class (included)  
 
-![HFAC GUI](hfac.png)
+![EDIT THIS LINK](HFAC.png)
 
-<!--start-->
 This module implements a protocol for performing conduction block experiments on nerve fibers using high frequency AC current (HFAC) stimuli. Action potentials in the nerve are evoked with a single biphase square pulse and the HFAC signal is a sinusoidal waveform. You have an option to select which component of the biphase pulse occurs first. The “Single AP Stim” button is used to send a single pulse that can be used to elicit individual responses. The “Enable HFAC” toggle button can be used at any time to turn the HFAC signal on or off. The “Run” button starts a protocol in which the HFAC signal is enabled and the action potential stimulus is automatically triggered after a certain delay. Synchronizing this module with the Data Recorder will create separate trials in the HDF5 file corresponding to the protocols initiated with the “Run” button.
-<!--end-->
 
 ####Input Channels
 None

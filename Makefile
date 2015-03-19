@@ -1,15 +1,13 @@
-PLUGIN_NAME = hfac
+PLUGIN_NAME = HFAC
 
-RTXI_INCLUDES = /usr/local/lib/rtxi_includes
+HEADERS = HFAC.h
 
-HEADERS = hfac.h\
-          $(RTXI_INCLUDES)/gen_sine.h\
-          $(RTXI_INCLUDES)/generator.h
-
-SOURCES = hfac.cpp \
-          moc_hfac.cpp\
-          $(RTXI_INCLUDES)/gen_sine.cpp\
-          $(RTXI_INCLUDES)/generator.cpp
+SOURCES = HFAC.cpp \
+          moc_HFAC.cpp\
+          include/gen_sine.cpp\
+          include/gen_sine.h\
+          include/generator.cpp\
+          include/generator.h
 
 ### Do not edit below this line ###
 
