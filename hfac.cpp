@@ -42,7 +42,6 @@ static HFAC::variable_t vars[] =
 		| DefaultGUIModel::DOUBLE, },
 	{ "Trial Duration (s)", "Trial Duration (s)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
-//	{ "Data File Name", "Name of HDF File", DefaultGUIModel::COMMENT },
 	{ "Time (s)", "Time (s)", DefaultGUIModel::STATE, }, 
 };
 
