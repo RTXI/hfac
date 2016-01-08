@@ -1,3 +1,6 @@
+# Qt moc files
+moc_*
+
 # Text Editor backups
 *.swp
 *~
