@@ -17,10 +17,9 @@ None
 2. output(1) – “HFAC Signal” : sinusoidal high frequency AC signal 
 
 ####Parameters
-1. AP Stim Amplitude : Amplitude of the action potential stimulus
+1. AP Stim Amplitude (V) : Amplitude of the action potential stimulus
 2. AP Stim Delay (ms) : Delay after which to trigger the AP stimulus during a timed protocol
 3. AP Stim Width (ms) : The width of each component of the biphasic AP stimulus
 4. HFAC Freq (kHz) : Frequency of the HFAC signal
-5. HFAC Amplitude : Amplitude of the HFAC signal
-6. Trial Duration : the total duration of a single trial, the Data Recorder will keep recording for this duration when running a timed protocol
-7. Data File Name : file name to use for the Data Recorder 
+5. HFAC Amplitude (V) : Amplitude of the HFAC signal
+6. Trial Duration (s) : the total duration of a single trial, the Data Recorder will keep recording for this duration when running a timed protocol

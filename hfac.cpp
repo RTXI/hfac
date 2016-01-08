@@ -28,7 +28,7 @@ static HFAC::variable_t vars[] =
 	{ "AP Stim", "Current for AP stimulus", DefaultGUIModel::OUTPUT, },
 	{ "HFAC Signal", "Current for HFAC conduction block",
 		DefaultGUIModel::OUTPUT, },
-	{ "AP Stim Amplitude", "AP Stim Amplitude", DefaultGUIModel::PARAMETER
+	{ "AP Stim Amplitude (V)", "AP Stim Amplitude (V)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
 	{ "AP Stim Delay (ms)", "AP Stim Delay (ms)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
@@ -36,7 +36,7 @@ static HFAC::variable_t vars[] =
 		| DefaultGUIModel::DOUBLE, },
 	{ "HFAC Freq", "HFAC Freq (kHz)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
-	{ "HFAC Amplitude", "HFAC Amplitude", DefaultGUIModel::PARAMETER
+	{ "HFAC Amplitude (V)", "HFAC Amplitude (V)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
 	{ "Trial Duration (s)", "Trial Duration (s)", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
@@ -115,11 +115,11 @@ void HFAC::execute(void) {
 void HFAC::update(DefaultGUIModel::update_flags_t flag) {
 	switch (flag) {
 		case INIT:
-			setParameter("AP Stim Amplitude", QString::number(APamp));
+			setParameter("AP Stim Amplitude (V)", QString::number(APamp));
 			setParameter("AP Stim Width (ms)", QString::number(APwidth * 1e3)); // show in ms, use in s
 			setParameter("AP Stim Delay (ms)", QString::number(APdelay * 1e3)); // show in ms, use in s
 			setParameter("HFAC Freq", QString::number(HFACfreq));
-			setParameter("HFAC Amplitude", QString::number(HFACamp));
+			setParameter("HFAC Amplitude (V)", QString::number(HFACamp));
 			setParameter("Trial Duration (s)", QString::number(duration));
 			setState("Time (s)", systime);
 			setComment("Data File Name", dFile);
@@ -127,11 +127,11 @@ void HFAC::update(DefaultGUIModel::update_flags_t flag) {
 			break;
 	
 		case MODIFY:
-			APamp = getParameter("AP Stim Amplitude").toDouble();
+			APamp = getParameter("AP Stim Amplitude (V)").toDouble();
 			APwidth = getParameter("AP Stim Width (ms)").toDouble() / 1e3; // get in ms, convert to s
 			APdelay = getParameter("AP Stim Delay (ms)").toDouble() / 1e3; // get in ms, convert to s
 			HFACfreq = getParameter("HFAC Freq").toDouble();
-			HFACamp = getParameter("HFAC Amplitude").toDouble();
+			HFACamp = getParameter("HFAC Amplitude (V)").toDouble();
 			duration = getParameter("Trial Duration (s)").toDouble();
 			if (duration <= APdelay){
 				QMessageBox::critical(this, "HFAC", tr(
