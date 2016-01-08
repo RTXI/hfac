@@ -18,8 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <default_gui_model.h>
 #include <gen_sine.h>
-//#include </home/user/Projects/rtxi/plugins/data_recorder/data_recorder.h>
-//#include "~/RTXI/rtxi/plugins/data_recorder/data_recorder.h"
 #include <math.h>
 #include <string>
 
