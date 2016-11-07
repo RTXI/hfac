@@ -7,7 +7,7 @@ HEADERS = hfac.h\
 SOURCES = hfac.cpp \
           moc_hfac.cpp\
 
-LIBS = -lqwt -lrtgen
+LIBS = -lrtgen
 
 ### Do not edit below this line ###
 
