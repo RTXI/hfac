@@ -1,19 +1,21 @@
 /*
-Copyright (C) 2011 Georgia Institute of Technology
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	Copyright (C) 2011 Georgia Institute of Technology
 
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <hfac.h>
+#include "hfac.h"
 #include <math.h>
 #include <default_gui_model.h>
 
@@ -46,15 +48,7 @@ static HFAC::variable_t vars[] =
 static size_t num_vars = sizeof(vars) / sizeof(DefaultGUIModel::variable_t);
 
 HFAC::HFAC(void) : DefaultGUIModel("HFAC", ::vars, ::num_vars) {
-	setWhatsThis(
-	"<p><b>HFAC Conduction Block:</b></p><p>Implements a protocol for conduction block experiments in nerve"
-	" fibers using high frequency AC current waveforms. Action potentials in the nerve are evoked by a "
-	"biphasic square pulse and the HFAC signal is a sinusoidal waveform of a specific frequency. You may "
-	"select whether the positive or negative component of the AP stimulus pulse occurs first. You "
-	"can send a single stimulation pulse and toggle the HFAC signal on/off. You can also run a timed "
-	"protocol in which the HFAC signal is enabled and the AP stimulation pulse is automatically triggered "
-	"after a specified delay.  Synchronizing this module with the Data Recorder will create separate trials "
-	"in the HDF5 file corresponding to the protocols initiated with the \"Run\" button.</p>");
+	setWhatsThis("<p><b>HFAC Conduction Block:</b></p><p>Implements a protocol for conduction block experiments in nerve fibers using high frequency AC current waveforms. Action potentials in the nerve are evoked by a biphasic square pulse and the HFAC signal is a sinusoidal waveform of a specific frequency. You may select whether the positive or negative component of the AP stimulus pulse occurs first. You can send a single stimulation pulse and toggle the HFAC signal on/off. You can also run a timed protocol in which the HFAC signal is enabled and the AP stimulation pulse is automatically triggered after a specified delay. Synchronizing this module with the Data Recorder will create separate trials in the HDF5 file corresponding to the protocols initiated with the \"Run\" button.</p>");
 	initParameters();
 	initStimulus();
 	DefaultGUIModel::createGUI(vars, num_vars); // this is required to create the GUI
